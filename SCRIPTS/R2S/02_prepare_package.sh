@@ -40,6 +40,7 @@ sed -i '/rtl8152/d' ./target/linux/rockchip/image/armv8.mk
 #CONFIG_CRYPTO_RNG=y
 #CONFIG_CRYPTO_RNG2=y
 #CONFIG_CRYPTO_RNG_DEFAULT=y
+CONFIG_DRM_PANFROST=y
 #' >> ./target/linux/rockchip/armv8/config-5.4
 sed -i '/CONFIG_SLUB/d' ./target/linux/rockchip/armv8/config-5.4
 sed -i '/CONFIG_PROC/d' ./target/linux/rockchip/armv8/config-5.4
