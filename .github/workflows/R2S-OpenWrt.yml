@@ -104,14 +104,14 @@ jobs:
       run: |
         cd openwrt
         /bin/bash 05_create_acl_for_luci.sh -a
-    - name: SSH to GitHub Actions
-      uses: P3TERX/ssh2actions@v1.0.0
     - name: Make Config
       run: |
         cd openwrt
         mv ../SEED/R2S/config.seed .config
         make defconfig
         chmod -R 755 ./
+    - name: SSH to GitHub Actions
+      uses: P3TERX/ssh2actions@v1.0.0
     - name: Make Download
       run: |
         df -h
