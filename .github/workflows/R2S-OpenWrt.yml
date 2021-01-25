@@ -104,6 +104,8 @@ jobs:
       run: |
         cd openwrt
         /bin/bash 05_create_acl_for_luci.sh -a
+    - name: SSH to GitHub Actions
+      uses: P3TERX/ssh2actions@v1.0.0
     - name: Make Config
       run: |
         cd openwrt
@@ -121,8 +123,6 @@ jobs:
         cd openwrt
         let make_process=$(nproc)+1
         make toolchain/install -j${make_process} V=s
-    - name: SSH to GitHub Actions
-      uses: P3TERX/ssh2actions@v1.0.0
     - name: Compile Openwrt
       run: |
         df -h
