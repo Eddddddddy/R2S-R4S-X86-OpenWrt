@@ -48,8 +48,6 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@main
-    - name: SSH to GitHub Actions
-      uses: P3TERX/ssh2actions@v1.0.0
     - name: Show system
       run: |
         echo -e "Total CPU cores\t: $(nproc)"
@@ -123,6 +121,8 @@ jobs:
         cd openwrt
         let make_process=$(nproc)+1
         make toolchain/install -j${make_process} V=s
+    - name: SSH to GitHub Actions
+      uses: P3TERX/ssh2actions@v1.0.0
     - name: Compile Openwrt
       run: |
         df -h
